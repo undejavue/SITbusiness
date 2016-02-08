@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.SITBusiness.com/SITBusiness_classLib/wsMaintenance" elementFormDefault="qualified" targetNamespace="http://www.SITBusiness.com/SITBusiness_classLib/wsMaintenance" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wincc-project/SIT/WService.svc?xsd=xsd5" namespace="http://www.SITBusiness.com/SITBusiness_classLib/wsSimpleItem" />
+  <xs:complexType name="ArrayOfwsMaintenance">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="wsMaintenance" nillable="true" type="tns:wsMaintenance" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfwsMaintenance" nillable="true" type="tns:ArrayOfwsMaintenance" />
+  <xs:complexType name="wsMaintenance">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://www.SITBusiness.com/SITBusiness_classLib/wsSimpleItem" base="q1:wsSimpleItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="comment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="docNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="factDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="factName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="plannedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="plannedName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="wsMaintenance" nillable="true" type="tns:wsMaintenance" />
+</xs:schema>

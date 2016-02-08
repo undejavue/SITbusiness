@@ -1,0 +1,20 @@
+﻿<controls:ChildWindow x:Class="SITBusiness.Views.cwnd_Producer"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           
+           Title="Производитель">
+
+    <Grid x:Name="grid_ProducerLayoutRoot" >
+        <StackPanel>
+            <StackPanel HorizontalAlignment="Center" Margin="5,0,10,0" >
+                <ContentControl Name="ContentControl_Producer" ContentTemplate="{StaticResource catalogsProducerTemplate}"></ContentControl>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Name="OKButton" Content="Сохранить" Width="96" Height="24" Margin="5" Click="OKButton_Click"></Button>
+                <Button Name="CancelButton" Content="Отмена" Width="96" Height="24" Margin="5" Click="CancelButton_Click"></Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+    
+</controls:ChildWindow>

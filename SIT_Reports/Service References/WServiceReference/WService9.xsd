@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.SITBusiness.com/SITBusiness_classLib/wsSimpleItem" elementFormDefault="qualified" targetNamespace="http://www.SITBusiness.com/SITBusiness_classLib/wsSimpleItem" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="wsSimpleItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="wsSimpleItem" nillable="true" type="tns:wsSimpleItem" />
+  <xs:complexType name="ArrayOfwsSimpleItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="wsSimpleItem" nillable="true" type="tns:wsSimpleItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfwsSimpleItem" nillable="true" type="tns:ArrayOfwsSimpleItem" />
+</xs:schema>

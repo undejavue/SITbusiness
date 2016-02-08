@@ -1,0 +1,87 @@
+﻿<navigation:Page 
+  x:Class="SITBusiness.About" 
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+  mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="900"  
+  Style="{StaticResource PageStyle}">
+   
+    <UserControl.Resources>
+        <Storyboard x:Name="spinStoryboard">
+            <DoubleAnimation Storyboard.TargetName="projection" RepeatBehavior="Forever" 
+                             Storyboard.TargetProperty="RotationY" From="0" To="360" Duration="0:0:3">
+            </DoubleAnimation>
+            <!--<DoubleAnimation Storyboard.TargetName="projection" RepeatBehavior="Forever" 
+                             Storyboard.TargetProperty="RotationZ" From="0" To="360" Duration="0:0:30">
+            </DoubleAnimation>
+            <DoubleAnimation Storyboard.TargetName="projection" RepeatBehavior="Forever" 
+                             Storyboard.TargetProperty="RotationX" From="0" To="360" Duration="0:0:40">
+            </DoubleAnimation>-->
+        </Storyboard>
+
+
+            <Storyboard x:Name="rotateStoryboard">
+                <DoubleAnimation Storyboard.TargetProperty="Angle" To="360" Duration="0:0:0.8" RepeatBehavior="Forever"></DoubleAnimation>
+            </Storyboard>
+            <Storyboard x:Name="unrotateStoryboard">
+                <DoubleAnimation Storyboard.TargetProperty="Angle" To="0" Duration="0:0:0.2"></DoubleAnimation>
+            </Storyboard>
+
+    </UserControl.Resources>
+    
+    
+    <Grid x:Name="LayoutRoot">
+    <ScrollViewer x:Name="PageScrollViewer" Style="{StaticResource PageScrollViewerStyle}">
+
+      <StackPanel x:Name="ContentStackPanel" Style="{StaticResource ContentStackPanelStyle}">
+
+        <TextBlock x:Name="HeaderText" Style="{StaticResource HeaderTextStyle}" 
+                           Text="{Binding Path=ApplicationStrings.AboutPageTitle, Source={StaticResource ResourceWrapper}}"/>
+        <TextBlock x:Name="ContentText" Style="{StaticResource ContentTextStyle}" 
+                           Text="About page content"/>
+                <Border Height="200" Width="200" >
+                    <Border.Projection>
+                        <PlaneProjection x:Name="projection"></PlaneProjection>
+                    </Border.Projection>
+                    <Image Height="200" Name="image1" Width="200" Source="/SITBusiness;component/Views/Images/pipboy.png" />
+                </Border>
+
+                <StackPanel Margin="5" Width="100">
+                    <Button Content="One" Margin="10" Padding="5" RenderTransformOrigin="0.5,0.5"
+   MouseEnter="cmd_MouseEnter" MouseLeave="cmd_MouseLeave">
+                        <Button.RenderTransform>
+                            <RotateTransform></RotateTransform>
+                        </Button.RenderTransform>
+                    </Button>
+
+                </StackPanel>
+
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="1" Width="200" Source="/SITBusiness;component/Assets/logoSimatekITdepartment.png" />
+                </Grid>
+                <Image Grid.Row="1" Width="200" Source="/SITBusiness;component/Assets/logoSimatekITdepartment.png" RenderTransformOrigin="0,0.4" >
+                    <Image.RenderTransform>
+                        <ScaleTransform ScaleY="-0.8"></ScaleTransform>
+                    </Image.RenderTransform>
+                    <Image.OpacityMask>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Offset="0" Color="Transparent"></GradientStop>
+                            <GradientStop Offset="1" Color="#44000000"></GradientStop>
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                
+
+            </StackPanel>
+
+
+
+        </ScrollViewer>
+  </Grid>
+
+</navigation:Page>

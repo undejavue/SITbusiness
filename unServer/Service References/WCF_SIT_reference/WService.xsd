@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.SITBusiness.com/SITBusiness_classLib/wsWorkState" elementFormDefault="qualified" targetNamespace="http://www.SITBusiness.com/SITBusiness_classLib/wsWorkState" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wincc-project/SIT/WService.svc?xsd=xsd5" namespace="http://www.SITBusiness.com/SITBusiness_classLib/wsSimpleItem" />
+  <xs:complexType name="ArrayOfwsWorkState">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="wsWorkState" nillable="true" type="tns:wsWorkState" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfwsWorkState" nillable="true" type="tns:ArrayOfwsWorkState" />
+  <xs:complexType name="wsWorkState">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://www.SITBusiness.com/SITBusiness_classLib/wsSimpleItem" base="q1:wsSimpleItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DateTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ms" type="xs:int" />
+          <xs:element minOccurs="0" name="msgNr" type="xs:int" />
+          <xs:element minOccurs="0" name="scadaID" type="xs:int" />
+          <xs:element minOccurs="0" name="state" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="wsWorkState" nillable="true" type="tns:wsWorkState" />
+</xs:schema>

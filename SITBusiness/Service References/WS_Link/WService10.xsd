@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.SITBusiness.com/SITBusiness_classLib/WorkStateMessage" elementFormDefault="qualified" targetNamespace="http://www.SITBusiness.com/SITBusiness_classLib/WorkStateMessage" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfWorkStateMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WorkStateMessage" nillable="true" type="tns:WorkStateMessage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWorkStateMessage" nillable="true" type="tns:ArrayOfWorkStateMessage" />
+  <xs:complexType name="WorkStateMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateTimeBegin" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateTimeEnd" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Duration" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="LongDescrRU" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ms" type="xs:int" />
+      <xs:element minOccurs="0" name="msgNr" type="xs:int" />
+      <xs:element minOccurs="0" name="scadaID" type="xs:int" />
+      <xs:element minOccurs="0" name="state" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WorkStateMessage" nillable="true" type="tns:WorkStateMessage" />
+</xs:schema>

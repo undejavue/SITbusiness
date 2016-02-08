@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.SITBusiness.com/SITBusiness_classLib/wsCalibrate" elementFormDefault="qualified" targetNamespace="http://www.SITBusiness.com/SITBusiness_classLib/wsCalibrate" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wincc-project/SIT/WService.svc?xsd=xsd5" namespace="http://www.SITBusiness.com/SITBusiness_classLib/wsSimpleItem" />
+  <xs:complexType name="ArrayOfwsCalibration">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="wsCalibration" nillable="true" type="tns:wsCalibration" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfwsCalibration" nillable="true" type="tns:ArrayOfwsCalibration" />
+  <xs:complexType name="wsCalibration">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://www.SITBusiness.com/SITBusiness_classLib/wsSimpleItem" base="q1:wsSimpleItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="comment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="docNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="factDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="plannedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="result" type="xs:boolean" />
+          <xs:element minOccurs="0" name="resultName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="typeID" type="xs:int" />
+          <xs:element minOccurs="0" name="typeName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="wsCalibration" nillable="true" type="tns:wsCalibration" />
+</xs:schema>

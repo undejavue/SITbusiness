@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wincc-project/SIT/WService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SITBusiness.Web" />
+  <xs:import schemaLocation="http://wincc-project/SIT/WService.svc?xsd=xsd4" namespace="http://www.SITBusiness.com/SITBusiness_classLib/wsBaseItem" />
+  <xs:import schemaLocation="http://wincc-project/SIT/WService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://wincc-project/SIT/WService.svc?xsd=xsd7" namespace="http://www.SITBusiness.com/SITBusiness_classLib/wsPasspotrExtended" />
+  <xs:import schemaLocation="http://wincc-project/SIT/WService.svc?xsd=xsd8" namespace="http://www.SITBusiness.com/SITBusiness_classLib/wsProducerType" />
+  <xs:import schemaLocation="http://wincc-project/SIT/WService.svc?xsd=xsd5" namespace="http://www.SITBusiness.com/SITBusiness_classLib/wsSimpleItem" />
+  <xs:import schemaLocation="http://wincc-project/SIT/WService.svc?xsd=xsd9" namespace="http://www.SITBusiness.com/SITBusiness_classLib/wsModelItem" />
+  <xs:import schemaLocation="http://wincc-project/SIT/WService.svc?xsd=xsd10" namespace="http://www.SITBusiness.com/SITBusiness_classLib/wsCalibrate" />
+  <xs:import schemaLocation="http://wincc-project/SIT/WService.svc?xsd=xsd11" namespace="http://www.SITBusiness.com/SITBusiness_classLib/wsMaintenance" />
+  <xs:import schemaLocation="http://wincc-project/SIT/WService.svc?xsd=xsd12" namespace="http://www.SITBusiness.com/SITBusiness_classLib/wsWorkState" />
+  <xs:element name="TestService">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TestServiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TestServiceResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_TestDBConnection">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_TestDBConnectionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ws_TestDBConnectionResult" type="xs:int" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_TestAuthConnection">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_TestAuthConnectionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ws_TestAuthConnectionResult" type="xs:int" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectDBTree">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TreeID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectDBTreeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SITBusiness.Web" minOccurs="0" name="ws_selectDBTreeResult" nillable="true" type="q1:DBTree" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectTreeItemsList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectTreeItemsListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://www.SITBusiness.com/SITBusiness_classLib/wsBaseItem" minOccurs="0" name="ws_selectTreeItemsListResult" nillable="true" type="q2:ArrayOfwsBaseItem" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Path" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_deleteTreeItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="IDlist" nillable="true" type="q3:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_deleteTreeItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ws_deleteTreeItemResult" type="xs:int" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_insertNode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="NodeName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ParentID" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="IsCalibrated" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_insertNodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ws_insertNodeResult" type="xs:int" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_updateNode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="NodeID" type="xs:int" />
+        <xs:element minOccurs="0" name="NodeName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ParentID" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="LinkToIcon" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="IsCalibrated" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_updateNodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ws_updateNodeResult" type="xs:int" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_deleteNode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="NodeID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_deleteNodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ws_deleteNodeResult" type="xs:int" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectDevDescrList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectDevDescrListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ws_selectDevDescrListResult" nillable="true" type="q4:ArrayOfstring" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_helperTypesList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_helperTypesListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ws_helperTypesListResult" nillable="true" type="q5:ArrayOfstring" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_moveItems">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" type="xs:int" />
+        <xs:element minOccurs="0" name="xml" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_moveItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ws_moveItemsResult" type="xs:int" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectPassport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectPassportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://www.SITBusiness.com/SITBusiness_classLib/wsPasspotrExtended" minOccurs="0" name="ws_selectPassportResult" nillable="true" type="q6:wsPasspotrExtended" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectPassport_EX">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectPassport_EXResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://www.SITBusiness.com/SITBusiness_classLib/wsPasspotrExtended" minOccurs="0" name="ws_selectPassport_EXResult" nillable="true" type="q7:wsPasspotrExtended" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_checkPassportProducer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://www.SITBusiness.com/SITBusiness_classLib/wsProducerType" minOccurs="0" name="P" nillable="true" type="q8:wsProducerType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_checkPassportProducerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ws_checkPassportProducerResult" type="xs:int" />
+        <xs:element minOccurs="0" name="OpValue" type="xs:int" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_insertPassport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://www.SITBusiness.com/SITBusiness_classLib/wsPasspotrExtended" minOccurs="0" name="p" nillable="true" type="q9:wsPasspotrExtended" />
+        <xs:element minOccurs="0" name="ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_insertPassportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ws_insertPassportResult" type="xs:int" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_updatePassport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://www.SITBusiness.com/SITBusiness_classLib/wsPasspotrExtended" minOccurs="0" name="p" nillable="true" type="q10:wsPasspotrExtended" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_updatePassportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ws_updatePassportResult" type="xs:int" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectDeviceParents">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectDeviceParentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ws_selectDeviceParentsResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectPassportsList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TypeID" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="PlaceID" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectPassportsListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://www.SITBusiness.com/SITBusiness_classLib/wsPasspotrExtended" minOccurs="0" name="ws_selectPassportsListResult" nillable="true" type="q11:ArrayOfwsPasspotrExtended" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectModelsList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectModelsListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://www.SITBusiness.com/SITBusiness_classLib/wsSimpleItem" minOccurs="0" name="ws_selectModelsListResult" nillable="true" type="q12:ArrayOfwsSimpleItem" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectModelParents">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectModelParentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://www.SITBusiness.com/SITBusiness_classLib/wsSimpleItem" minOccurs="0" name="ws_selectModelParentsResult" nillable="true" type="q13:ArrayOfwsSimpleItem" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectSubModelsList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectSubModelsListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://www.SITBusiness.com/SITBusiness_classLib/wsSimpleItem" minOccurs="0" name="ws_selectSubModelsListResult" nillable="true" type="q14:ArrayOfwsSimpleItem" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectModificationsList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectModificationsListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://www.SITBusiness.com/SITBusiness_classLib/wsSimpleItem" minOccurs="0" name="ws_selectModificationsListResult" nillable="true" type="q15:ArrayOfwsSimpleItem" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectDBTreeModels">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectDBTreeModelsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SITBusiness.Web" minOccurs="0" name="ws_selectDBTreeModelsResult" nillable="true" type="q16:DBTree" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectModels">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectModelsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://www.SITBusiness.com/SITBusiness_classLib/wsModelItem" minOccurs="0" name="ws_selectModelsResult" nillable="true" type="q17:ArrayOfwsModelItem" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectProducersList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectProducersListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://www.SITBusiness.com/SITBusiness_classLib/wsProducerType" minOccurs="0" name="ws_selectProducersListResult" nillable="true" type="q18:ArrayOfwsProducerType" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectProducersData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectProducersDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://www.SITBusiness.com/SITBusiness_classLib/wsProducerType" minOccurs="0" name="ws_selectProducersDataResult" nillable="true" type="q19:wsProducerType" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_updateProducer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://www.SITBusiness.com/SITBusiness_classLib/wsProducerType" minOccurs="0" name="LocalProducer" nillable="true" type="q20:wsProducerType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_updateProducerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ws_updateProducerResult" type="xs:int" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_insertProducer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://www.SITBusiness.com/SITBusiness_classLib/wsProducerType" minOccurs="0" name="LocalProducer" nillable="true" type="q21:wsProducerType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_insertProducerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ws_insertProducerResult" type="xs:int" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_checkProducer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_checkProducerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://www.SITBusiness.com/SITBusiness_classLib/wsSimpleItem" minOccurs="0" name="ws_checkProducerResult" nillable="true" type="q22:ArrayOfwsSimpleItem" />
+        <xs:element minOccurs="0" name="OpValue" type="xs:int" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_deleteProducer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_deleteProducerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ws_deleteProducerResult" type="xs:int" />
+        <xs:element minOccurs="0" name="OpValue" type="xs:int" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectPlaces">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_ID" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectPlacesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://www.SITBusiness.com/SITBusiness_classLib/wsBaseItem" minOccurs="0" name="ws_selectPlacesResult" nillable="true" type="q23:ArrayOfwsBaseItem" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_insertPlace">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="parentID" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_insertPlaceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ws_insertPlaceResult" type="xs:int" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_deletePlace">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_deletePlaceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ws_deletePlaceResult" type="xs:int" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectDBTreePlaces">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectDBTreePlacesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/SITBusiness.Web" minOccurs="0" name="ws_selectDBTreePlacesResult" nillable="true" type="q24:DBTree" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectPlaceParents">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectPlaceParentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ws_selectPlaceParentsResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectDevListByPlace">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectDevListByPlaceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://www.SITBusiness.com/SITBusiness_classLib/wsBaseItem" minOccurs="0" name="ws_selectDevListByPlaceResult" nillable="true" type="q25:ArrayOfwsBaseItem" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Path" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectNextCalibrations">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectNextCalibrationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://www.SITBusiness.com/SITBusiness_classLib/wsCalibrate" minOccurs="0" name="ws_selectNextCalibrationsResult" nillable="true" type="q26:ArrayOfwsCalibration" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectDeviceCalibrations">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectDeviceCalibrationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://www.SITBusiness.com/SITBusiness_classLib/wsCalibrate" minOccurs="0" name="ws_selectDeviceCalibrationsResult" nillable="true" type="q27:ArrayOfwsCalibration" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_insertCalibration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://www.SITBusiness.com/SITBusiness_classLib/wsCalibrate" minOccurs="0" name="c" nillable="true" type="q28:wsCalibration" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_insertCalibrationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ws_insertCalibrationResult" type="xs:int" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectCalibrationTypes">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectCalibrationTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://www.SITBusiness.com/SITBusiness_classLib/wsSimpleItem" minOccurs="0" name="ws_selectCalibrationTypesResult" nillable="true" type="q29:ArrayOfwsSimpleItem" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_ins_upd_Period">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_id" type="xs:int" />
+        <xs:element minOccurs="0" name="period" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_ins_upd_PeriodResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ws_ins_upd_PeriodResult" type="xs:int" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectNextMaintenances">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectNextMaintenancesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://www.SITBusiness.com/SITBusiness_classLib/wsMaintenance" minOccurs="0" name="ws_selectNextMaintenancesResult" nillable="true" type="q30:ArrayOfwsMaintenance" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectDeviceMaintenances">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectDeviceMaintenancesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://www.SITBusiness.com/SITBusiness_classLib/wsMaintenance" minOccurs="0" name="ws_selectDeviceMaintenancesResult" nillable="true" type="q31:ArrayOfwsMaintenance" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectDeviceWorkStates">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="beginDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ws_selectDeviceWorkStatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://www.SITBusiness.com/SITBusiness_classLib/wsWorkState" minOccurs="0" name="ws_selectDeviceWorkStatesResult" nillable="true" type="q32:wsWorkState" />
+        <xs:element minOccurs="0" name="OpStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.SITBusiness.com/SITBusiness_classLib/wsPasspotrExtended" elementFormDefault="qualified" targetNamespace="http://www.SITBusiness.com/SITBusiness_classLib/wsPasspotrExtended" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/SIT/WService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost/SIT/WService.svc?xsd=xsd8" namespace="http://www.SITBusiness.com/SITBusiness_classLib/wsProducerType" />
+  <xs:import schemaLocation="http://localhost/SIT/WService.svc?xsd=xsd4" namespace="http://www.SITBusiness.com/SITBusiness_classLib/wsBaseItem" />
+  <xs:complexType name="wsPasspotrExtended">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CalibrationPeriod" type="xs:int" />
+      <xs:element minOccurs="0" name="CurrentStateID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CurrentStateName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DevDescrRU" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DevID" type="xs:int" />
+      <xs:element minOccurs="0" name="DevInvNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DevModel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DevModelID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DevModification" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DevModificationID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DevPassportNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DevPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DevPlaceID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DevPlaceName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DevPlacePath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DevSubModel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DevSubModelID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DevTypeID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DevTypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ImplementationDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsCalibrated" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ProduceDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ProducerCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProducerCountry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProducerID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ProducerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProducerPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProducerState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProducerStreetBuilding" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PurchaseDate" nillable="true" type="xs:dateTime" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="helper_DevDescr" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element xmlns:q2="http://www.SITBusiness.com/SITBusiness_classLib/wsProducerType" minOccurs="0" name="list_Producers" nillable="true" type="q2:ArrayOfwsProducerType" />
+      <xs:element xmlns:q3="http://www.SITBusiness.com/SITBusiness_classLib/wsBaseItem" minOccurs="0" name="tbl_Models" nillable="true" type="q3:ArrayOfwsBaseItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="wsPasspotrExtended" nillable="true" type="tns:wsPasspotrExtended" />
+  <xs:complexType name="ArrayOfwsPasspotrExtended">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="wsPasspotrExtended" nillable="true" type="tns:wsPasspotrExtended" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfwsPasspotrExtended" nillable="true" type="tns:ArrayOfwsPasspotrExtended" />
+</xs:schema>

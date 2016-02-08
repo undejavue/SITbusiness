@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.SITBusiness.com/SITBusiness_classLib/wsBaseItem" elementFormDefault="qualified" targetNamespace="http://www.SITBusiness.com/SITBusiness_classLib/wsBaseItem" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wincc-project/SIT/WService.svc?xsd=xsd5" namespace="http://www.SITBusiness.com/SITBusiness_classLib/wsSimpleItem" />
+  <xs:complexType name="ArrayOfwsBaseItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="wsBaseItem" nillable="true" type="tns:wsBaseItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfwsBaseItem" nillable="true" type="tns:ArrayOfwsBaseItem" />
+  <xs:complexType name="wsBaseItem">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://www.SITBusiness.com/SITBusiness_classLib/wsSimpleItem" base="q1:wsSimpleItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsCalibrated" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsChecked" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsType" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LinkToIcon" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ParentID" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="wsBaseItem" nillable="true" type="tns:wsBaseItem" />
+</xs:schema>

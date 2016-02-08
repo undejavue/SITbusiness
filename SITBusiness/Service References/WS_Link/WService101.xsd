@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.SITBusiness.com/SITBusiness_classLib/wsDBTreeBase" elementFormDefault="qualified" targetNamespace="http://www.SITBusiness.com/SITBusiness_classLib/wsDBTreeBase" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/SIT/WService.svc?xsd=xsd4" namespace="http://www.SITBusiness.com/SITBusiness_classLib/wsBaseItem" />
+  <xs:complexType name="wsDBTreeBase">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://www.SITBusiness.com/SITBusiness_classLib/wsBaseItem" minOccurs="0" name="DBDATA" nillable="true" type="q1:ArrayOfwsBaseItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="wsDBTreeBase" nillable="true" type="tns:wsDBTreeBase" />
+</xs:schema>

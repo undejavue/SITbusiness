@@ -1,0 +1,172 @@
+﻿<navigation:Page x:Class="SITBusiness.Views.Catalogs" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:toolkit="clr-namespace:System.Windows;assembly=System.Windows.Controls"
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:local="clr-namespace:SITBusiness.Views"
+           d:DesignWidth="1000" d:DesignHeight="1200"
+           Title="Index Page" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk">
+
+    <UserControl.Resources>
+        <DataTemplate x:Key="listSimpleItemTemplate">
+            <StackPanel Orientation="Horizontal" Width="400">
+                <Image Height="32" Width="32" Source="/SITBusiness;component/Assets/silverlight.png" >
+                </Image>
+                <Rectangle Width="30" Height="30" ></Rectangle>
+                <StackPanel Orientation="Vertical" Width="270" >
+                    <TextBlock FontSize="12" x:Name="tb_Description" Text="{Binding Description}" VerticalAlignment="Center" ></TextBlock>
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock FontSize="9" Text="ID ="></TextBlock>
+                        <TextBlock FontSize="9" x:Name="tb_id" Text="{Binding ID}" ></TextBlock>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="68" >
+                    <Button x:Name="btn_deleteProducer" Content="Удалить" HorizontalAlignment="Right" Width="60" Height="24" VerticalAlignment="Center" Click="btn_deleteProducer_Click" ></Button>
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+
+            <DataTemplate x:Key="listProducerItemTemplate">
+                <StackPanel Orientation="Horizontal" Width="540" >
+                    <Image Height="32" Width="32" Source="/SITBusiness;component/Assets/silverlight.png" >
+                    </Image>
+                    <Rectangle Width="30" Height="30" ></Rectangle>
+                    <StackPanel Orientation="Vertical" Width="400">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding ProducerName}" FontSize="12"/>
+                        <TextBlock Text=" (" FontSize="12"/>
+                        <TextBlock Text="{Binding ProducerCountry}" FontSize="12"/>
+                        <TextBlock Text=")" FontSize="12"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
+                        <TextBlock FontSize="9" Text="ID ="/>
+                        <TextBlock FontSize="9" Text="{Binding ProducerID}"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="68" >
+                        <Button x:Name="btn_deleteProducer" Content="Удалить" HorizontalAlignment="Right" Width="60" Height="24" VerticalAlignment="Center" Click="btn_deleteProducer_Click" ></Button>
+                </StackPanel>
+              </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="listModelItemTemplate">
+            <StackPanel Orientation="Horizontal" Width="400">
+                <Image Height="32" Width="32" Source="/SITBusiness;component/Assets/silverlight.png" >
+                </Image>
+                <Rectangle Width="30" Height="30" ></Rectangle>
+                <StackPanel Orientation="Vertical" Width="270" >
+                    <TextBlock FontSize="12" x:Name="tb_Description" Text="{Binding Description}" VerticalAlignment="Center" ></TextBlock>
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock FontSize="9" Text="ID ="></TextBlock>
+                        <TextBlock FontSize="9" x:Name="tb_id" Text="{Binding ID}" ></TextBlock>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="68" >
+                    <Button x:Name="btn_deleteModel" Content="Удалить" HorizontalAlignment="Right" Width="60" Height="24" VerticalAlignment="Center" Click="btn_deleteModel_Click" ></Button>
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot">
+        <ScrollViewer x:Name="PageScrollViewer" Style="{StaticResource PageScrollViewerStyle}" >
+            <StackPanel x:Name="ContentStackPanel" Style="{StaticResource ContentStackPanelStyle}" Orientation="Horizontal">
+
+                <StackPanel Name="Navi_panel" Width="340">                   
+
+                    <Border Name="b_ListDictionarys" Style="{StaticResource borderStyle}" Margin="10" >
+                        <StackPanel Orientation="Vertical" >
+                            <Border Name="b_Dictionarys"  Style="{StaticResource borderStyle}" Height="30" Margin="10" >
+                                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock Text="Выбор справочника"  FontSize="12" ></TextBlock>
+                                </StackPanel>
+                            </Border>
+
+                            <ListBox Name="list_Dictionarys"  Margin="10" SelectionChanged="list_Dictionarys_SelectionChanged">
+                                <ListBoxItem>
+                                    <StackPanel >
+                                        <TextBlock Text="Производители" VerticalAlignment="Center"  FontSize="12" />
+                                    </StackPanel>
+                                </ListBoxItem>
+                                <ListBoxItem>
+                                <StackPanel >
+                                    <TextBlock Text="Модели" VerticalAlignment="Center"  FontSize="12" />
+                                </StackPanel>
+                               </ListBoxItem>
+                            </ListBox>
+                        </StackPanel>
+                    </Border>
+                    <Border Name="b_tree_Models" Style="{StaticResource borderNavi}" Background="White" Visibility="Collapsed" >
+                        <controls:TreeView x:Name="tree_Models" ItemTemplate="{StaticResource MTree}" 
+                                Margin="0,0,0,0" SelectedItemChanged="tree_Models_SelectedItemChanged"   
+                                BorderThickness="0" FontSize="12" HorizontalAlignment="Left">
+                        </controls:TreeView>
+                    </Border>
+
+                </StackPanel>
+              
+                <StackPanel Name="Content_panel"  >
+                    <sdk:TabControl Name="tabControl_Catalogs" Margin="10"  SelectionChanged="tabControl_Catalogs_SelectionChanged">
+                        <sdk:TabItem Header="Справочник" Name="tab_List" Tag="1">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="40" />
+                                </Grid.RowDefinitions>
+                                <StackPanel Name="stp_insertItem" Orientation="Horizontal" Grid.Row="0">
+                                    <Button Name="btn_insertForm_show"  Width="140" Height="24" Background="DarkBlue" Click="btn_insertForm_show_Click" Margin="0,5,0,5">Добавить элемент</Button>
+                                </StackPanel>
+                                <ListBox HorizontalAlignment="Left"  x:Name="list_Catalogs" VerticalAlignment="Top" BorderThickness="0" Grid.Row="1" 
+                                         SelectionChanged="list_Catalogs_SelectionChanged" >
+                                </ListBox>
+                                
+                                <StackPanel Name="panel_Catalogs" Grid.Row="1" Visibility="Collapsed"></StackPanel>
+                                
+                                <sdk:Label Height="28" Name="lbl_ListCount" Content="Всего элементов в выбранном разделе: 0" Grid.Row="2" />
+                            </Grid>
+                        </sdk:TabItem>
+
+                        <sdk:TabItem Header="Элемент" Name="tab_Element" Tag="2" IsEnabled="False">
+                            <StackPanel>
+                                <StackPanel Name="panel_Element" HorizontalAlignment="Center" >
+                                    
+                                </StackPanel>
+                            </StackPanel>
+                        </sdk:TabItem>
+
+                        <sdk:TabItem Header="Настройки справочника" Name="tab_NodeOptions" Tag="2" IsEnabled="False">
+                            <StackPanel>
+
+                            </StackPanel>
+                        </sdk:TabItem>
+
+                    </sdk:TabControl>
+
+
+                    <sdk:TabControl Name="tabControl_insert" Visibility="Collapsed" Margin="10" >
+
+                        <sdk:TabItem Header="Добавить производителя" Name="tab_insertProducer" Tag="1" Visibility="Collapsed">
+                            <StackPanel HorizontalAlignment="Center" Name="panel_ElementWrite" >
+                            </StackPanel>
+                        </sdk:TabItem>
+
+                        <sdk:TabItem Header="Добавить модель" Name="tab_insertModel" Tag="2" Visibility="Collapsed">
+                            <StackPanel HorizontalAlignment="Center">
+                               
+                            </StackPanel>
+                        </sdk:TabItem>
+
+                    </sdk:TabControl>
+
+
+
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</navigation:Page>

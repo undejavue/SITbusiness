@@ -1,0 +1,171 @@
+﻿<navigation:Page x:Class="SITBusiness.Views.InsertDevice" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation" 
+                 Title="InsertDevice Page" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+                 d:DesignHeight="900" d:DesignWidth="900">
+    
+    <UserControl.Resources>
+
+        <Style x:Key="borderStyle" TargetType="Border">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0,0" StartPoint="0,1">
+                        <GradientStop Color="Silver" Offset="0.0"/>
+                        <GradientStop Color="White" Offset="0.3"/>
+                        <GradientStop Color="Silver" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="CornerRadius" Value="10"/>
+        </Style>
+        
+        <Style x:Key="panel_G1" TargetType="StackPanel">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0,0" StartPoint="0,1">
+                        <GradientStop Color="White" Offset="0.0"/>
+                        <GradientStop Color="Gray" Offset="0.5"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="small_txt" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+
+        <Style x:Key="big_txt" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+
+        <DataTemplate x:Key="item">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Description, Mode=TwoWay}"/>
+                <TextBlock Text=" (ID=" />
+                <TextBlock Text="{Binding ID, Mode=TwoWay}" />
+                <TextBlock Text=")" />
+            </StackPanel>
+        </DataTemplate>
+        
+
+    </UserControl.Resources>
+    
+    
+    <Grid x:Name="LayoutRoot" ShowGridLines="False">
+
+        <ScrollViewer  x:Name="PageScrollViewer" Style="{StaticResource PageScrollViewerStyle}" >
+
+            <StackPanel Orientation="Vertical" Style="{StaticResource ContentStackPanelStyle}">
+
+                <TextBlock Name="HeaderText" Style="{StaticResource HeaderTextStyle}" Text="Добавление нового устройства в базу" Margin="12,12,0,20" HorizontalAlignment="Center" Height="32" VerticalAlignment="Top"/>
+
+                <Border Width="460" Style="{StaticResource borderStyle}">
+                <StackPanel  Name="stackPanel1" Margin="0,0,0,0" Width="460" >
+                    <StackPanel Name="border" Margin="20,20,20,20" >
+
+                        
+                        <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
+                                <TextBlock Height="20" Name="txt_Node_label_1" Text="Класс:" Margin="0,0,10,0" Width="54" Style="{StaticResource PassportTextBlock}"/>
+                            <ComboBox Name="box_Nodes_1" Width="246" Height="30" ItemTemplate="{StaticResource item}" SelectionChanged="box_Nodes_1_SelectionChanged" />
+                            <Button Content="Новый класс" Height="30" Name="btn_CreateNode_1" Width="90" Margin="20,0,0,0" ToolTipService.ToolTip="Создать новый элемент списка"/>
+                        </StackPanel>
+
+
+                        <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
+                                <TextBlock Height="20" Name="txt_Node_label_2" Text="Тип:" Margin="0,0,10,0" Width="54" Style="{StaticResource PassportTextBlock}"/>
+                            <ComboBox Name="box_Nodes_2" Width="246" Height="32" ItemTemplate="{StaticResource item}" SelectionChanged="box_Nodes_2_SelectionChanged" />
+                            <Button Content="Новый тип" Height="30" Name="btn_CreateNode_2" Width="90" Margin="20,0,0,0" ToolTipService.ToolTip="Создать новый элемент списка"/>
+                        </StackPanel>
+
+                        
+                        <StackPanel Orientation="Horizontal">
+                                <TextBlock Height="20" Name="txt_Node_label_3" Text="Подтип:" Margin="0,0,10,0" Width="54" Style="{StaticResource PassportTextBlock}"/>
+                                <ComboBox Name="box_Nodes_3" Width="246" Height="32" ItemTemplate="{StaticResource item}" />
+                                <Button Content="Новый подтип" Height="30" Name="btn_CreateNode_3" Width="90" Margin="20,0,0,0" ToolTipService.ToolTip="Создать новый элемент списка"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                </Border>
+
+                <Border Width="460" Style="{StaticResource borderStyle}" Margin="0,20,0,0">
+                    <StackPanel Name="stackPanel2" VerticalAlignment="Top" Width="460">
+
+                        <Grid Name="grid_Device_detail">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="52"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="20" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200"></ColumnDefinition>
+                                <ColumnDefinition Width="256*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBox Name="txt_PassportNo" Text="{Binding DevPassportNo, Mode=TwoWay}" TextWrapping="Wrap" Width="220" Grid.Column="1" Height="28" Grid.Row="1" />
+                            <TextBox Name="txt_Description" Text="{Binding DevDescrRU, Mode=TwoWay}" TextWrapping="Wrap" Width="220" Grid.Column="1" Height="28" Grid.Row="2" />
+                            <TextBox Height="28" Name="txt_DevInvNo" Text="{Binding DevInvNo, Mode=TwoWay}" Width="220" Grid.Column="1" Grid.Row="3" />
+                            <TextBox Height="28" Name="txt_DevModelName" Text="{Binding DevModelName, Mode=TwoWay}" Width="220" Grid.Column="1" Grid.Row="4" />
+                            <TextBox Height="28" Name="txt_DevSubModel" Text="{Binding DevSubModel, Mode=TwoWay}" Width="220" Grid.Column="1" Grid.Row="5" />
+                            <TextBox Height="28" Name="txt_DevModification" Text="{Binding DevModification, Mode=TwoWay}" Width="220" Grid.Column="1" Grid.Row="6" />
+                            <TextBox Height="28" Name="txt_DevPurchaseNo" Text="000 000" Width="220" Grid.Column="1" Grid.Row="7" />
+                            <TextBox Height="28" Name="txt_ProducerName" Text="{Binding ProducerName, Mode=TwoWay}" Width="220" Grid.Column="1" Grid.Row="8" />
+                            <TextBox Height="28" Name="txt_ProducerCountry" Text="{Binding ProducerCountry, Mode=TwoWay}" Width="220" Grid.Column="1" Grid.Row="13" />
+                            <TextBox Height="28" Name="txt_ProducerCity" Text="{Binding ProducerCity, Mode=TwoWay}" Width="220" Grid.Column="1" Grid.Row="14" />
+                            <TextBox Height="28" Name="txt_ProducerStreetBilding" Text="{Binding ProducerStreetBilding, Mode=TwoWay}" Width="220" Grid.Column="1" Grid.Row="15" />
+                            <TextBox Height="28" Name="txt_ProducerPhone" Text="{Binding ProducerPhone, Mode=TwoWay}" Width="220" Grid.Column="1" Grid.Row="16" />
+                            <sdk:DatePicker Name="dt_ImplementationDate" Width="220" Grid.Column="1" Grid.Row="9" Height="28" SelectedDate="{Binding ProduceDate,Mode=TwoWay}" />
+                            <sdk:DatePicker Name="dt_ProduceDate" Width="220" Grid.Column="1" Grid.Row="10" Height="28" />
+                            <sdk:DatePicker Name="dt_PurchaseDate" Width="220" Grid.Column="1" Grid.Row="11" Height="28" />
+                            <TextBlock Height="15" Name="textBlock0" Style="{StaticResource PassportTextBlock}" Text="Номер паспорта" Grid.Row="1" Width="200" />
+                            <TextBlock Height="15" Name="textBlock1" Style="{StaticResource PassportTextBlock}" Text="Исполнительный механизм" Grid.Row="2" Width="200" />
+                            <TextBlock Height="15" Name="textBlock2" Style="{StaticResource PassportTextBlock}" Text="Инвентарный номер" Grid.Row="3" Width="200" />
+                            <TextBlock Height="15" Name="textBlock3" Style="{StaticResource PassportTextBlock}" Text="Модель" Grid.Row="4" Width="200" />
+                            <TextBlock Height="15" Name="textBlock4" Style="{StaticResource PassportTextBlock}" Text="Тип" Width="200" Grid.Row="5" />
+                            <TextBlock Height="15" Name="textBlock5" Style="{StaticResource PassportTextBlock}" Text="Модификация" Grid.Row="6" Width="200" />
+                            <TextBlock Height="15" Name="textBlock6" Style="{StaticResource PassportTextBlock}" Text="Заказной №" Width="200" Grid.Row="7" />
+                            <TextBlock Height="15" Name="textBlock7" Style="{StaticResource PassportTextBlock}" Text="Производитель" Grid.Row="8" Width="200" />
+                            <TextBlock Height="15" Name="textBlock8" Style="{StaticResource PassportTextBlock}" Text="Дата производства" Width="200" Grid.Row="9" />
+                            <TextBlock Height="15" Name="textBlock9" Style="{StaticResource PassportTextBlock}" Text="Дата покупки" Grid.Row="10" Width="200" />
+                            <TextBlock Height="15" Name="textBlock10" Style="{StaticResource PassportTextBlock}" Text="Введен в эксплуатацию" Width="200" Grid.Row="11" />
+                            <TextBlock Height="15" Name="textBlock11" Style="{StaticResource PassportTextBlock}" Text="Данные о производителе" Grid.Row="12" Grid.ColumnSpan="2" Margin="0,8,20,8" HorizontalAlignment="Center" />
+                            <TextBlock Height="15" Name="textBlock12" Style="{StaticResource PassportTextBlock}" Text="Страна" Width="200" Grid.Row="13" />
+                            <TextBlock Height="15" Name="textBlock13" Style="{StaticResource PassportTextBlock}" Text="Город" Width="200" Grid.Row="14" />
+                            <TextBlock Height="15" Name="textBlock14" Style="{StaticResource PassportTextBlock}" Text="Адрес" Width="200" Grid.Row="15" />
+                            <TextBlock Height="15" Name="textBlock15" Style="{StaticResource PassportTextBlock}" Text="Телефон" Width="200" Grid.Row="16" />
+                        </Grid>
+
+
+                    </StackPanel>
+                </Border>
+
+                <Border Width="460" Style="{StaticResource borderStyle}" Margin="0,20,0,20">
+                    <StackPanel Name="pofig" Width="460" Height="50" Orientation="Horizontal"  >
+                        <Button Name="btn_INSERT" Width="100" Height="32" Margin="100,10,0,0" Click="btn_INSERT_Click">Добавить!</Button>
+                        <Button Name="btn_VIEW" Width="100" Height="32" Margin="50,10,0,0" Click="btn_VIEW_Click">Прочитать</Button>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+
+    </Grid>
+</navigation:Page>

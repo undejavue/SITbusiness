@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.SITBusiness.com/SITBusiness_classLib/wsWorkState" elementFormDefault="qualified" targetNamespace="http://www.SITBusiness.com/SITBusiness_classLib/wsWorkState" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/SIT/WService.svc?xsd=xsd5" namespace="http://www.SITBusiness.com/SITBusiness_classLib/wsSimpleItem" />
+  <xs:import schemaLocation="http://localhost/SIT/WService.svc?xsd=xsd13" namespace="http://www.SITBusiness.com/SITBusiness_classLib/WorkStateMessage" />
+  <xs:import schemaLocation="http://localhost/SIT/WService.svc?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/SIT_classLib" />
+  <xs:complexType name="wsWorkState">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://www.SITBusiness.com/SITBusiness_classLib/wsSimpleItem" base="q1:wsSimpleItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="finishDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="list_ED" nillable="true" type="q1:ArrayOfwsSimpleItem" />
+          <xs:element xmlns:q2="http://www.SITBusiness.com/SITBusiness_classLib/WorkStateMessage" minOccurs="0" name="list_SCADAMessages" nillable="true" type="q2:ArrayOfWorkStateMessage" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SIT_classLib" minOccurs="0" name="list_StatesDurations" nillable="true" type="q3:ArrayOfWStateNDuration" />
+          <xs:element minOccurs="0" name="startDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="wsWorkState" nillable="true" type="tns:wsWorkState" />
+</xs:schema>

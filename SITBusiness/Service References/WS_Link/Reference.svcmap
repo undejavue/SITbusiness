@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1bda2b2d-667a-4224-9b37-1ba26e85a096" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/SIT/WService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WService2.wsdl" MetadataType="Wsdl" ID="9c0bb99b-315f-45c5-8bf9-425630277b3c" SourceId="1" SourceUrl="http://localhost/SIT/WService.svc?wsdl" />
+    <MetadataFile FileName="WService10.xsd" MetadataType="Schema" ID="2a86842f-c01f-4b43-979b-76d25f301327" SourceId="1" SourceUrl="http://localhost/SIT/WService.svc?xsd=xsd13" />
+    <MetadataFile FileName="WService101.xsd" MetadataType="Schema" ID="2b170615-a694-4956-b82c-e8f8062b7654" SourceId="1" SourceUrl="http://localhost/SIT/WService.svc?xsd=xsd3" />
+    <MetadataFile FileName="WService102.xsd" MetadataType="Schema" ID="885be427-4d43-48e9-8a43-7323ffca187b" SourceId="1" SourceUrl="http://localhost/SIT/WService.svc?xsd=xsd7" />
+    <MetadataFile FileName="WService103.xsd" MetadataType="Schema" ID="de9843d6-fb25-4062-afd1-9082906f4b84" SourceId="1" SourceUrl="http://localhost/SIT/WService.svc?xsd=xsd11" />
+    <MetadataFile FileName="WService104.xsd" MetadataType="Schema" ID="89c11afe-cf2b-43e1-bfff-705f60b40c56" SourceId="1" SourceUrl="http://localhost/SIT/WService.svc?xsd=xsd0" />
+    <MetadataFile FileName="WService105.xsd" MetadataType="Schema" ID="9a3d85f7-a7af-4a61-a4ba-17f59e68432f" SourceId="1" SourceUrl="http://localhost/SIT/WService.svc?xsd=xsd4" />
+    <MetadataFile FileName="WService106.xsd" MetadataType="Schema" ID="5ea7cd35-e5d2-406a-97e5-8282c3d7ac86" SourceId="1" SourceUrl="http://localhost/SIT/WService.svc?xsd=xsd8" />
+    <MetadataFile FileName="WService107.xsd" MetadataType="Schema" ID="74909578-62a3-4ea4-b072-9e01c024f968" SourceId="1" SourceUrl="http://localhost/SIT/WService.svc?xsd=xsd12" />
+    <MetadataFile FileName="WService108.xsd" MetadataType="Schema" ID="49435b41-0613-4263-ad7b-3ede6867eb79" SourceId="1" SourceUrl="http://localhost/SIT/WService.svc?xsd=xsd10" />
+    <MetadataFile FileName="WService109.xsd" MetadataType="Schema" ID="987c7b38-d56b-4fd0-9310-5aec3ae7430b" SourceId="1" SourceUrl="http://localhost/SIT/WService.svc?xsd=xsd1" />
+    <MetadataFile FileName="WService1010.xsd" MetadataType="Schema" ID="a0b999f0-69a0-4211-88de-e4c031d2378a" SourceId="1" SourceUrl="http://localhost/SIT/WService.svc?xsd=xsd5" />
+    <MetadataFile FileName="WService1011.xsd" MetadataType="Schema" ID="71ba11cd-55d5-4adf-817f-4008bbd235b1" SourceId="1" SourceUrl="http://localhost/SIT/WService.svc?xsd=xsd9" />
+    <MetadataFile FileName="WService1.disco" MetadataType="Disco" ID="16dde188-11ab-4170-bf40-3900778e4db3" SourceId="1" SourceUrl="http://localhost/SIT/WService.svc?disco" />
+    <MetadataFile FileName="WService1012.xsd" MetadataType="Schema" ID="d1f9ce9e-14ca-4e58-9d94-146bb1cc83a8" SourceId="1" SourceUrl="http://localhost/SIT/WService.svc?xsd=xsd14" />
+    <MetadataFile FileName="WService1013.xsd" MetadataType="Schema" ID="320d6213-cc29-4093-961f-5b96efe4f725" SourceId="1" SourceUrl="http://localhost/SIT/WService.svc?xsd=xsd2" />
+    <MetadataFile FileName="WService1014.xsd" MetadataType="Schema" ID="ef21d8fc-cc47-43ae-81ea-f55ecf4e4a35" SourceId="1" SourceUrl="http://localhost/SIT/WService.svc?xsd=xsd6" />
+    <MetadataFile FileName="WService21.wsdl" MetadataType="Wsdl" ID="e1dfa0a4-39f2-44e0-855a-cfeb7aaa5937" SourceId="1" SourceUrl="http://localhost/SIT/WService.svc?wsdl=wsdl0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

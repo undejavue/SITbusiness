@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.SITBusiness.com/SITBusiness_classLib/wsModelItem" elementFormDefault="qualified" targetNamespace="http://www.SITBusiness.com/SITBusiness_classLib/wsModelItem" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wincc-project/SIT/WService.svc?xsd=xsd5" namespace="http://www.SITBusiness.com/SITBusiness_classLib/wsSimpleItem" />
+  <xs:complexType name="ArrayOfwsModelItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="wsModelItem" nillable="true" type="tns:wsModelItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfwsModelItem" nillable="true" type="tns:ArrayOfwsModelItem" />
+  <xs:complexType name="wsModelItem">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://www.SITBusiness.com/SITBusiness_classLib/wsSimpleItem" base="q1:wsSimpleItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CalibrationPeriod" type="xs:int" />
+          <xs:element minOccurs="0" name="ModelID" type="xs:int" />
+          <xs:element minOccurs="0" name="ModelName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SubModelID" type="xs:int" />
+          <xs:element minOccurs="0" name="SubModelName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SubSubModelID" type="xs:int" />
+          <xs:element minOccurs="0" name="SubSubModelName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="wsModelItem" nillable="true" type="tns:wsModelItem" />
+</xs:schema>

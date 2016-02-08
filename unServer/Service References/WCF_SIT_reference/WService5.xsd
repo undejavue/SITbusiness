@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.SITBusiness.com/SITBusiness_classLib/wsProducerType" elementFormDefault="qualified" targetNamespace="http://www.SITBusiness.com/SITBusiness_classLib/wsProducerType" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wincc-project/SIT/WService.svc?xsd=xsd5" namespace="http://www.SITBusiness.com/SITBusiness_classLib/wsSimpleItem" />
+  <xs:complexType name="ArrayOfwsProducerType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="wsProducerType" nillable="true" type="tns:wsProducerType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfwsProducerType" nillable="true" type="tns:ArrayOfwsProducerType" />
+  <xs:complexType name="wsProducerType">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://www.SITBusiness.com/SITBusiness_classLib/wsSimpleItem" base="q1:wsSimpleItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ProducerCity" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProducerCountry" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProducerID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProducerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProducerPhone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProducerState" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProducerStreetBuilding" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="wsProducerType" nillable="true" type="tns:wsProducerType" />
+</xs:schema>

@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://localhost/SIT/WService.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://localhost/SIT/WService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/SIT/WService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SITBusiness.Web" />
+      <xsd:import schemaLocation="http://localhost/SIT/WService.svc?xsd=xsd3" namespace="http://www.SITBusiness.com/SITBusiness_classLib/wsDBTreeBase" />
+      <xsd:import schemaLocation="http://localhost/SIT/WService.svc?xsd=xsd4" namespace="http://www.SITBusiness.com/SITBusiness_classLib/wsBaseItem" />
+      <xsd:import schemaLocation="http://localhost/SIT/WService.svc?xsd=xsd5" namespace="http://www.SITBusiness.com/SITBusiness_classLib/wsSimpleItem" />
+      <xsd:import schemaLocation="http://localhost/SIT/WService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost/SIT/WService.svc?xsd=xsd7" namespace="http://www.SITBusiness.com/SITBusiness_classLib/wsPasspotrExtended" />
+      <xsd:import schemaLocation="http://localhost/SIT/WService.svc?xsd=xsd8" namespace="http://www.SITBusiness.com/SITBusiness_classLib/wsProducerType" />
+      <xsd:import schemaLocation="http://localhost/SIT/WService.svc?xsd=xsd9" namespace="http://www.SITBusiness.com/SITBusiness_classLib/wsModelItem" />
+      <xsd:import schemaLocation="http://localhost/SIT/WService.svc?xsd=xsd10" namespace="http://www.SITBusiness.com/SITBusiness_classLib/wsCalibrate" />
+      <xsd:import schemaLocation="http://localhost/SIT/WService.svc?xsd=xsd11" namespace="http://www.SITBusiness.com/SITBusiness_classLib/wsMaintenance" />
+      <xsd:import schemaLocation="http://localhost/SIT/WService.svc?xsd=xsd12" namespace="http://www.SITBusiness.com/SITBusiness_classLib/wsWorkState" />
+      <xsd:import schemaLocation="http://localhost/SIT/WService.svc?xsd=xsd13" namespace="http://www.SITBusiness.com/SITBusiness_classLib/WorkStateMessage" />
+      <xsd:import schemaLocation="http://localhost/SIT/WService.svc?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/SIT_classLib" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="WService_TestService_InputMessage">
+    <wsdl:part name="parameters" element="TestService" />
+  </wsdl:message>
+  <wsdl:message name="WService_TestService_OutputMessage">
+    <wsdl:part name="parameters" element="TestServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_TestDBConnection_InputMessage">
+    <wsdl:part name="parameters" element="ws_TestDBConnection" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_TestDBConnection_OutputMessage">
+    <wsdl:part name="parameters" element="ws_TestDBConnectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_TestAuthConnection_InputMessage">
+    <wsdl:part name="parameters" element="ws_TestAuthConnection" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_TestAuthConnection_OutputMessage">
+    <wsdl:part name="parameters" element="ws_TestAuthConnectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectDBTree_InputMessage">
+    <wsdl:part name="parameters" element="ws_selectDBTree" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectDBTree_OutputMessage">
+    <wsdl:part name="parameters" element="ws_selectDBTreeResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectTreeItemsList_InputMessage">
+    <wsdl:part name="parameters" element="ws_selectTreeItemsList" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectTreeItemsList_OutputMessage">
+    <wsdl:part name="parameters" element="ws_selectTreeItemsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_deleteTreeItem_InputMessage">
+    <wsdl:part name="parameters" element="ws_deleteTreeItem" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_deleteTreeItem_OutputMessage">
+    <wsdl:part name="parameters" element="ws_deleteTreeItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_insertNode_InputMessage">
+    <wsdl:part name="parameters" element="ws_insertNode" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_insertNode_OutputMessage">
+    <wsdl:part name="parameters" element="ws_insertNodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_updateNode_InputMessage">
+    <wsdl:part name="parameters" element="ws_updateNode" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_updateNode_OutputMessage">
+    <wsdl:part name="parameters" element="ws_updateNodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_deleteNode_InputMessage">
+    <wsdl:part name="parameters" element="ws_deleteNode" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_deleteNode_OutputMessage">
+    <wsdl:part name="parameters" element="ws_deleteNodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectDevDescrList_InputMessage">
+    <wsdl:part name="parameters" element="ws_selectDevDescrList" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectDevDescrList_OutputMessage">
+    <wsdl:part name="parameters" element="ws_selectDevDescrListResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_helperTypesList_InputMessage">
+    <wsdl:part name="parameters" element="ws_helperTypesList" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_helperTypesList_OutputMessage">
+    <wsdl:part name="parameters" element="ws_helperTypesListResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_moveItems_InputMessage">
+    <wsdl:part name="parameters" element="ws_moveItems" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_moveItems_OutputMessage">
+    <wsdl:part name="parameters" element="ws_moveItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectPassport_InputMessage">
+    <wsdl:part name="parameters" element="ws_selectPassport" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectPassport_OutputMessage">
+    <wsdl:part name="parameters" element="ws_selectPassportResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectPassport_EX_InputMessage">
+    <wsdl:part name="parameters" element="ws_selectPassport_EX" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectPassport_EX_OutputMessage">
+    <wsdl:part name="parameters" element="ws_selectPassport_EXResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_checkPassportProducer_InputMessage">
+    <wsdl:part name="parameters" element="ws_checkPassportProducer" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_checkPassportProducer_OutputMessage">
+    <wsdl:part name="parameters" element="ws_checkPassportProducerResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_insertPassport_InputMessage">
+    <wsdl:part name="parameters" element="ws_insertPassport" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_insertPassport_OutputMessage">
+    <wsdl:part name="parameters" element="ws_insertPassportResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_updatePassport_InputMessage">
+    <wsdl:part name="parameters" element="ws_updatePassport" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_updatePassport_OutputMessage">
+    <wsdl:part name="parameters" element="ws_updatePassportResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectDeviceParents_InputMessage">
+    <wsdl:part name="parameters" element="ws_selectDeviceParents" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectDeviceParents_OutputMessage">
+    <wsdl:part name="parameters" element="ws_selectDeviceParentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectPassportsList_InputMessage">
+    <wsdl:part name="parameters" element="ws_selectPassportsList" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectPassportsList_OutputMessage">
+    <wsdl:part name="parameters" element="ws_selectPassportsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectModelsList_InputMessage">
+    <wsdl:part name="parameters" element="ws_selectModelsList" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectModelsList_OutputMessage">
+    <wsdl:part name="parameters" element="ws_selectModelsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectModelParents_InputMessage">
+    <wsdl:part name="parameters" element="ws_selectModelParents" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectModelParents_OutputMessage">
+    <wsdl:part name="parameters" element="ws_selectModelParentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectSubModelsList_InputMessage">
+    <wsdl:part name="parameters" element="ws_selectSubModelsList" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectSubModelsList_OutputMessage">
+    <wsdl:part name="parameters" element="ws_selectSubModelsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectModificationsList_InputMessage">
+    <wsdl:part name="parameters" element="ws_selectModificationsList" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectModificationsList_OutputMessage">
+    <wsdl:part name="parameters" element="ws_selectModificationsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectDBTreeModels_InputMessage">
+    <wsdl:part name="parameters" element="ws_selectDBTreeModels" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectDBTreeModels_OutputMessage">
+    <wsdl:part name="parameters" element="ws_selectDBTreeModelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectModels_InputMessage">
+    <wsdl:part name="parameters" element="ws_selectModels" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectModels_OutputMessage">
+    <wsdl:part name="parameters" element="ws_selectModelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectProducersList_InputMessage">
+    <wsdl:part name="parameters" element="ws_selectProducersList" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectProducersList_OutputMessage">
+    <wsdl:part name="parameters" element="ws_selectProducersListResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectProducersData_InputMessage">
+    <wsdl:part name="parameters" element="ws_selectProducersData" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectProducersData_OutputMessage">
+    <wsdl:part name="parameters" element="ws_selectProducersDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_updateProducer_InputMessage">
+    <wsdl:part name="parameters" element="ws_updateProducer" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_updateProducer_OutputMessage">
+    <wsdl:part name="parameters" element="ws_updateProducerResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_insertProducer_InputMessage">
+    <wsdl:part name="parameters" element="ws_insertProducer" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_insertProducer_OutputMessage">
+    <wsdl:part name="parameters" element="ws_insertProducerResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_checkProducer_InputMessage">
+    <wsdl:part name="parameters" element="ws_checkProducer" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_checkProducer_OutputMessage">
+    <wsdl:part name="parameters" element="ws_checkProducerResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_deleteProducer_InputMessage">
+    <wsdl:part name="parameters" element="ws_deleteProducer" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_deleteProducer_OutputMessage">
+    <wsdl:part name="parameters" element="ws_deleteProducerResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectPlaces_InputMessage">
+    <wsdl:part name="parameters" element="ws_selectPlaces" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectPlaces_OutputMessage">
+    <wsdl:part name="parameters" element="ws_selectPlacesResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_insertPlace_InputMessage">
+    <wsdl:part name="parameters" element="ws_insertPlace" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_insertPlace_OutputMessage">
+    <wsdl:part name="parameters" element="ws_insertPlaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_deletePlace_InputMessage">
+    <wsdl:part name="parameters" element="ws_deletePlace" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_deletePlace_OutputMessage">
+    <wsdl:part name="parameters" element="ws_deletePlaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectDBTreePlaces_InputMessage">
+    <wsdl:part name="parameters" element="ws_selectDBTreePlaces" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectDBTreePlaces_OutputMessage">
+    <wsdl:part name="parameters" element="ws_selectDBTreePlacesResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectPlaceParents_InputMessage">
+    <wsdl:part name="parameters" element="ws_selectPlaceParents" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectPlaceParents_OutputMessage">
+    <wsdl:part name="parameters" element="ws_selectPlaceParentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectDevListByPlace_InputMessage">
+    <wsdl:part name="parameters" element="ws_selectDevListByPlace" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectDevListByPlace_OutputMessage">
+    <wsdl:part name="parameters" element="ws_selectDevListByPlaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectNextCalibrations_InputMessage">
+    <wsdl:part name="parameters" element="ws_selectNextCalibrations" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectNextCalibrations_OutputMessage">
+    <wsdl:part name="parameters" element="ws_selectNextCalibrationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectDeviceCalibrations_InputMessage">
+    <wsdl:part name="parameters" element="ws_selectDeviceCalibrations" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectDeviceCalibrations_OutputMessage">
+    <wsdl:part name="parameters" element="ws_selectDeviceCalibrationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_insertCalibration_InputMessage">
+    <wsdl:part name="parameters" element="ws_insertCalibration" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_insertCalibration_OutputMessage">
+    <wsdl:part name="parameters" element="ws_insertCalibrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectCalibrationTypes_InputMessage">
+    <wsdl:part name="parameters" element="ws_selectCalibrationTypes" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectCalibrationTypes_OutputMessage">
+    <wsdl:part name="parameters" element="ws_selectCalibrationTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_ins_upd_Period_InputMessage">
+    <wsdl:part name="parameters" element="ws_ins_upd_Period" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_ins_upd_Period_OutputMessage">
+    <wsdl:part name="parameters" element="ws_ins_upd_PeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectNextMaintenances_InputMessage">
+    <wsdl:part name="parameters" element="ws_selectNextMaintenances" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectNextMaintenances_OutputMessage">
+    <wsdl:part name="parameters" element="ws_selectNextMaintenancesResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectDeviceMaintenances_InputMessage">
+    <wsdl:part name="parameters" element="ws_selectDeviceMaintenances" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectDeviceMaintenances_OutputMessage">
+    <wsdl:part name="parameters" element="ws_selectDeviceMaintenancesResponse" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectDeviceWorkStates_InputMessage">
+    <wsdl:part name="parameters" element="ws_selectDeviceWorkStates" />
+  </wsdl:message>
+  <wsdl:message name="WService_ws_selectDeviceWorkStates_OutputMessage">
+    <wsdl:part name="parameters" element="ws_selectDeviceWorkStatesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WService">
+    <wsdl:operation name="TestService">
+      <wsdl:input wsaw:Action="urn:WService/TestService" message="WService_TestService_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/TestServiceResponse" message="WService_TestService_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_TestDBConnection">
+      <wsdl:input wsaw:Action="urn:WService/ws_TestDBConnection" message="WService_ws_TestDBConnection_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_TestDBConnectionResponse" message="WService_ws_TestDBConnection_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_TestAuthConnection">
+      <wsdl:input wsaw:Action="urn:WService/ws_TestAuthConnection" message="WService_ws_TestAuthConnection_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_TestAuthConnectionResponse" message="WService_ws_TestAuthConnection_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_selectDBTree">
+      <wsdl:input wsaw:Action="urn:WService/ws_selectDBTree" message="WService_ws_selectDBTree_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_selectDBTreeResponse" message="WService_ws_selectDBTree_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_selectTreeItemsList">
+      <wsdl:input wsaw:Action="urn:WService/ws_selectTreeItemsList" message="WService_ws_selectTreeItemsList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_selectTreeItemsListResponse" message="WService_ws_selectTreeItemsList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_deleteTreeItem">
+      <wsdl:input wsaw:Action="urn:WService/ws_deleteTreeItem" message="WService_ws_deleteTreeItem_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_deleteTreeItemResponse" message="WService_ws_deleteTreeItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_insertNode">
+      <wsdl:input wsaw:Action="urn:WService/ws_insertNode" message="WService_ws_insertNode_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_insertNodeResponse" message="WService_ws_insertNode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_updateNode">
+      <wsdl:input wsaw:Action="urn:WService/ws_updateNode" message="WService_ws_updateNode_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_updateNodeResponse" message="WService_ws_updateNode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_deleteNode">
+      <wsdl:input wsaw:Action="urn:WService/ws_deleteNode" message="WService_ws_deleteNode_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_deleteNodeResponse" message="WService_ws_deleteNode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_selectDevDescrList">
+      <wsdl:input wsaw:Action="urn:WService/ws_selectDevDescrList" message="WService_ws_selectDevDescrList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_selectDevDescrListResponse" message="WService_ws_selectDevDescrList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_helperTypesList">
+      <wsdl:input wsaw:Action="urn:WService/ws_helperTypesList" message="WService_ws_helperTypesList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_helperTypesListResponse" message="WService_ws_helperTypesList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_moveItems">
+      <wsdl:input wsaw:Action="urn:WService/ws_moveItems" message="WService_ws_moveItems_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_moveItemsResponse" message="WService_ws_moveItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_selectPassport">
+      <wsdl:input wsaw:Action="urn:WService/ws_selectPassport" message="WService_ws_selectPassport_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_selectPassportResponse" message="WService_ws_selectPassport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_selectPassport_EX">
+      <wsdl:input wsaw:Action="urn:WService/ws_selectPassport_EX" message="WService_ws_selectPassport_EX_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_selectPassport_EXResponse" message="WService_ws_selectPassport_EX_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_checkPassportProducer">
+      <wsdl:input wsaw:Action="urn:WService/ws_checkPassportProducer" message="WService_ws_checkPassportProducer_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_checkPassportProducerResponse" message="WService_ws_checkPassportProducer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_insertPassport">
+      <wsdl:input wsaw:Action="urn:WService/ws_insertPassport" message="WService_ws_insertPassport_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_insertPassportResponse" message="WService_ws_insertPassport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_updatePassport">
+      <wsdl:input wsaw:Action="urn:WService/ws_updatePassport" message="WService_ws_updatePassport_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_updatePassportResponse" message="WService_ws_updatePassport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_selectDeviceParents">
+      <wsdl:input wsaw:Action="urn:WService/ws_selectDeviceParents" message="WService_ws_selectDeviceParents_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_selectDeviceParentsResponse" message="WService_ws_selectDeviceParents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_selectPassportsList">
+      <wsdl:input wsaw:Action="urn:WService/ws_selectPassportsList" message="WService_ws_selectPassportsList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_selectPassportsListResponse" message="WService_ws_selectPassportsList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_selectModelsList">
+      <wsdl:input wsaw:Action="urn:WService/ws_selectModelsList" message="WService_ws_selectModelsList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_selectModelsListResponse" message="WService_ws_selectModelsList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_selectModelParents">
+      <wsdl:input wsaw:Action="urn:WService/ws_selectModelParents" message="WService_ws_selectModelParents_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_selectModelParentsResponse" message="WService_ws_selectModelParents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_selectSubModelsList">
+      <wsdl:input wsaw:Action="urn:WService/ws_selectSubModelsList" message="WService_ws_selectSubModelsList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_selectSubModelsListResponse" message="WService_ws_selectSubModelsList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_selectModificationsList">
+      <wsdl:input wsaw:Action="urn:WService/ws_selectModificationsList" message="WService_ws_selectModificationsList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_selectModificationsListResponse" message="WService_ws_selectModificationsList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_selectDBTreeModels">
+      <wsdl:input wsaw:Action="urn:WService/ws_selectDBTreeModels" message="WService_ws_selectDBTreeModels_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_selectDBTreeModelsResponse" message="WService_ws_selectDBTreeModels_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_selectModels">
+      <wsdl:input wsaw:Action="urn:WService/ws_selectModels" message="WService_ws_selectModels_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_selectModelsResponse" message="WService_ws_selectModels_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_selectProducersList">
+      <wsdl:input wsaw:Action="urn:WService/ws_selectProducersList" message="WService_ws_selectProducersList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_selectProducersListResponse" message="WService_ws_selectProducersList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_selectProducersData">
+      <wsdl:input wsaw:Action="urn:WService/ws_selectProducersData" message="WService_ws_selectProducersData_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_selectProducersDataResponse" message="WService_ws_selectProducersData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_updateProducer">
+      <wsdl:input wsaw:Action="urn:WService/ws_updateProducer" message="WService_ws_updateProducer_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_updateProducerResponse" message="WService_ws_updateProducer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_insertProducer">
+      <wsdl:input wsaw:Action="urn:WService/ws_insertProducer" message="WService_ws_insertProducer_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_insertProducerResponse" message="WService_ws_insertProducer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_checkProducer">
+      <wsdl:input wsaw:Action="urn:WService/ws_checkProducer" message="WService_ws_checkProducer_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_checkProducerResponse" message="WService_ws_checkProducer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_deleteProducer">
+      <wsdl:input wsaw:Action="urn:WService/ws_deleteProducer" message="WService_ws_deleteProducer_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_deleteProducerResponse" message="WService_ws_deleteProducer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_selectPlaces">
+      <wsdl:input wsaw:Action="urn:WService/ws_selectPlaces" message="WService_ws_selectPlaces_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_selectPlacesResponse" message="WService_ws_selectPlaces_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_insertPlace">
+      <wsdl:input wsaw:Action="urn:WService/ws_insertPlace" message="WService_ws_insertPlace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_insertPlaceResponse" message="WService_ws_insertPlace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_deletePlace">
+      <wsdl:input wsaw:Action="urn:WService/ws_deletePlace" message="WService_ws_deletePlace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_deletePlaceResponse" message="WService_ws_deletePlace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_selectDBTreePlaces">
+      <wsdl:input wsaw:Action="urn:WService/ws_selectDBTreePlaces" message="WService_ws_selectDBTreePlaces_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_selectDBTreePlacesResponse" message="WService_ws_selectDBTreePlaces_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_selectPlaceParents">
+      <wsdl:input wsaw:Action="urn:WService/ws_selectPlaceParents" message="WService_ws_selectPlaceParents_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_selectPlaceParentsResponse" message="WService_ws_selectPlaceParents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_selectDevListByPlace">
+      <wsdl:input wsaw:Action="urn:WService/ws_selectDevListByPlace" message="WService_ws_selectDevListByPlace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_selectDevListByPlaceResponse" message="WService_ws_selectDevListByPlace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_selectNextCalibrations">
+      <wsdl:input wsaw:Action="urn:WService/ws_selectNextCalibrations" message="WService_ws_selectNextCalibrations_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_selectNextCalibrationsResponse" message="WService_ws_selectNextCalibrations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_selectDeviceCalibrations">
+      <wsdl:input wsaw:Action="urn:WService/ws_selectDeviceCalibrations" message="WService_ws_selectDeviceCalibrations_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_selectDeviceCalibrationsResponse" message="WService_ws_selectDeviceCalibrations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_insertCalibration">
+      <wsdl:input wsaw:Action="urn:WService/ws_insertCalibration" message="WService_ws_insertCalibration_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_insertCalibrationResponse" message="WService_ws_insertCalibration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_selectCalibrationTypes">
+      <wsdl:input wsaw:Action="urn:WService/ws_selectCalibrationTypes" message="WService_ws_selectCalibrationTypes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_selectCalibrationTypesResponse" message="WService_ws_selectCalibrationTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_ins_upd_Period">
+      <wsdl:input wsaw:Action="urn:WService/ws_ins_upd_Period" message="WService_ws_ins_upd_Period_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_ins_upd_PeriodResponse" message="WService_ws_ins_upd_Period_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_selectNextMaintenances">
+      <wsdl:input wsaw:Action="urn:WService/ws_selectNextMaintenances" message="WService_ws_selectNextMaintenances_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_selectNextMaintenancesResponse" message="WService_ws_selectNextMaintenances_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_selectDeviceMaintenances">
+      <wsdl:input wsaw:Action="urn:WService/ws_selectDeviceMaintenances" message="WService_ws_selectDeviceMaintenances_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_selectDeviceMaintenancesResponse" message="WService_ws_selectDeviceMaintenances_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_selectDeviceWorkStates">
+      <wsdl:input wsaw:Action="urn:WService/ws_selectDeviceWorkStates" message="WService_ws_selectDeviceWorkStates_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WService/ws_selectDeviceWorkStatesResponse" message="WService_ws_selectDeviceWorkStates_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

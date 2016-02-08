@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SIT_classLib" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SIT_classLib" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/SIT/WService.svc?xsd=xsd5" namespace="http://www.SITBusiness.com/SITBusiness_classLib/wsSimpleItem" />
+  <xs:complexType name="ArrayOfWStateNDuration">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WStateNDuration" nillable="true" type="tns:WStateNDuration" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWStateNDuration" nillable="true" type="tns:ArrayOfWStateNDuration" />
+  <xs:complexType name="WStateNDuration">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://www.SITBusiness.com/SITBusiness_classLib/wsSimpleItem" base="q1:wsSimpleItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="duration" type="xs:double" />
+          <xs:element minOccurs="0" name="durationBase" type="xs:double" />
+          <xs:element minOccurs="0" name="ed" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="stateName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WStateNDuration" nillable="true" type="tns:WStateNDuration" />
+</xs:schema>

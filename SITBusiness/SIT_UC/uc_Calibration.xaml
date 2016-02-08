@@ -1,0 +1,78 @@
+﻿<UserControl xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  x:Class="SITBusiness.uc_Calibration"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+
+    <UserControl.Resources>
+
+        <Style x:Key="ThisSearchBorder" TargetType="Border">
+            <Setter Property="Background" Value="Green"/>
+            <Setter Property="BorderBrush" Value="Green"></Setter>
+            <Setter Property="CornerRadius" Value="0"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Opacity" Value="1"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="ThisIsSearchedBorder" TargetType="Border">
+            <Setter Property="Background" Value="Red"/>
+            <Setter Property="BorderBrush" Value="Red"></Setter>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="CornerRadius" Value="1"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Opacity" Value="0.8"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <DataTemplate x:Key="resultName_wB">
+            <Border x:Name="teamBorder" Style="{StaticResource ThisSearchBorder}" Tag="4len">
+                <TextBlock Text="{Binding resultName}" Foreground="White" FontWeight="SemiBold" />
+            </Border>
+        </DataTemplate>
+
+    </UserControl.Resources>
+    
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Height="32" Text="Результаты поверки" TextAlignment="Center" FontSize="14" Grid.Row="0" />
+
+        <Border Name="no_Calibration" Style="{StaticResource borderTool}" Background="Gray" Grid.Row="1" Visibility="Collapsed">
+            <StackPanel VerticalAlignment="Center" >
+                <TextBlock Text="Устройство не поверялось" TextAlignment="Center" Foreground="White" FontSize="14" />
+            </StackPanel>
+        </Border>
+
+        <sdk:DataGrid Grid.Row="2" Name="dg_Calibration" AutoGenerateColumns="False" Margin="10" LoadingRow="dg_Calibration_LoadingRow" LayoutUpdated="dg_Calibration_LayoutUpdated">
+            <sdk:DataGrid.Columns>
+                <sdk:DataGridTextColumn Header="След. поверка" Binding="{Binding plannedDate,StringFormat='dd.MM.yyyy'}"></sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Binding="{Binding factDate,StringFormat='dd.MM.yyyy'}"></sdk:DataGridTextColumn>
+                <sdk:DataGridTemplateColumn Header="Результат" CellTemplate="{StaticResource resultName_wB}" />
+                <!--<sdk:DataGridTextColumn Binding="{Binding resultName}"></sdk:DataGridTextColumn>-->
+                <sdk:DataGridTextColumn Binding="{Binding typeName}"></sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Binding="{Binding docNo}"></sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Binding="{Binding comment}"></sdk:DataGridTextColumn>
+
+                <!--<sdk:DataGridTextColumn Header="Подпись" Binding="{Binding NOOP}"></sdk:DataGridTextColumn>-->
+            </sdk:DataGrid.Columns>
+            
+        </sdk:DataGrid>
+
+        <Border Style="{StaticResource borderTool}" Background="WhiteSmoke" Grid.Row="3">
+            <StackPanel  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="3" >
+                <Button  Name="btn_Calibrate" Content="Выполнить поверку" Margin="5" Click="btn_Calibrate_Click" />
+            </StackPanel>
+        </Border>
+
+
+
+    </Grid>
+</UserControl>

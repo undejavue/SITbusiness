@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <system.serviceModel>
+        <bindings>
+            <customBinding>
+                <binding name="CustomBinding_WService1">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+                <binding name="CustomBinding_WService">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+                <binding name="CustomBinding_WService2">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+            </customBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://localhost:8080/WService.svc" binding="customBinding"
+                bindingConfiguration="CustomBinding_WService2" contract="ServiceReference.SITBusiness.Web.WService.WService"
+                name="CustomBinding_WService" />
+            <endpoint address="http://localhost/SIT/WService.svc" binding="customBinding"
+                bindingConfiguration="CustomBinding_WService1" contract="WS_Link.WService"
+                name="CustomBinding_WService1" />
+        </client>
+    </system.serviceModel>
+</configuration>

@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="SITBusiness.uc_Models"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="500" d:DesignWidth="900" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk">
+    
+    <Grid x:Name="LayoutRoot" Background="White">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <StackPanel  Orientation="Horizontal" VerticalAlignment="Center" Grid.Row="0" >
+            <TextBlock Text="Группировка:" FontSize="12" VerticalAlignment="Center"></TextBlock>
+            <Button Content=" По модели " Height="23" Name="btn_group1" Margin="5"  Click="btn_group1_Click" />
+            <Button Content=" По субмодели " Height="23" Name="btn_group2" Margin="5"  Click="btn_group2_Click" />
+            <Button Content=" По субсубмодели " Height="23" Name="btn_group3" Margin="5"  Click="btn_group3_Click" />
+            <Button Content=" Свернуть " Height="23"  Name="btn_collapseGroups" Margin="5" Click="btn_collapseGroups_Click"/>
+            <Button Content=" Развернуть " Height="23"  Name="btn_expandGroups" Margin="5" Click="btn_expandGroups_Click"/>
+            <Button Content=" Сброс " Height="23"  Name="btn_cancelGroups" Margin="5" Click="btn_cancelGroups_Click"/>
+        </StackPanel>
+
+        <sdk:DataGrid HorizontalAlignment="Left" Name="dg_Models" VerticalAlignment="Top" AutoGenerateColumns="False" Grid.Row="1">
+            <sdk:DataGrid.Columns>
+                <sdk:DataGridTextColumn Header="Модель" Binding="{Binding ModelName,Mode=TwoWay}"></sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Header="Субмодель" Binding="{Binding SubModelName,Mode=TwoWay}"></sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Header="Субсубмодель" Binding="{Binding SubSubModelName,Mode=TwoWay}"></sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Header="Период поверки" Binding="{Binding CalibrationPeriod,Mode=TwoWay}"></sdk:DataGridTextColumn>
+                <sdk:DataGridTemplateColumn Header="Управление">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="btn_period" Content="Применить" Click="btn_period_Click" ToolTipService.ToolTip="Применить новое значение для периода поверки"></Button>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+            </sdk:DataGrid.Columns>
+            
+        </sdk:DataGrid>
+    </Grid>
+</UserControl>
